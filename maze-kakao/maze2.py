@@ -1,6 +1,8 @@
+import math
+
 def solution(n, start, end, roads, traps):
     idx=dict()
-    mincost=10**9
+    mincost=math.inf
 
     for i,trap in enumerate(traps):
         idx[trap]=i
@@ -42,4 +44,4 @@ def solution(n, start, end, roads, traps):
 
     return mincost
 
-print(solution(3, 1, 3, [[1, 2, 2], [3, 2, 3]], [2]))
+print(solution(4, 1, 4, [[1, 2, 1], [3, 2, 1], [2, 4, 1]], [2, 3])) 
