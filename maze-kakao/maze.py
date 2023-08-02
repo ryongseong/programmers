@@ -5,22 +5,15 @@ def solution(n, start, end, roads, traps):
     now = start
     answer = 0
 
-    switch = False
-
     while now != end:
-        for i in range(n-1):
+        for i in range(len(roads)):
             if now in traps:
-                if switch == False:
-                    switch = True
-                    for j in range(n-1):
-                        if now == roads[j][0] or now == roads[j][1]:
-                            roads[j][0], roads[j][1] = roads[j][1], roads[j][0]
-                        else:
-                            continue
-                else:
-                    switch = False
-                    continue
-                
+                for j in range(len(roads)):
+                    if now == roads[j][0] or now == roads[j][1]:
+                        roads[j][0], roads[j][1] = roads[j][1], roads[j][0]
+                    else:
+                        continue
+
             if now == roads[i][0]:
                 now = roads[i][1]
                 answer += roads[i][2]
