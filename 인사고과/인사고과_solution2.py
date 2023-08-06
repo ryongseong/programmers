@@ -14,4 +14,5 @@ def solution(scores):
 
     return rank                                 # 등수를 반환한다.
 
-print(solution([[2,2], [1, 4], [3,2], [3, 2], [2, 1]]))
+# print(solution([[2,2], [1, 4], [3,2], [3, 2], [2, 1]]))
+print(solution([[7, 1], [6, 6], [5, 4], [5, 4], [6, 6]]))
