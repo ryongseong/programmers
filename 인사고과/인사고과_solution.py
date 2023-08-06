@@ -5,9 +5,9 @@ def solution(scores):
     max_company = 0 # 가장 높은 점수는 0으로 초깃값 할당
     answer = 1 # 등수는 1부터 시작하므로 1로 초깃값 할당
     for s in scores:
-        if wanho[0] < s[0] and wanho[1] < s[1]: # 근무 태도와 동료 평가 둘 다 비교함. 한번이라도 두 점수 모두 낮은 경우가 한번이라도 있다면 바로 return -1을 함.
-            return -1
-        if max_company <= s[1]: # 
+        if wanho[0] < s[0] and wanho[1] < s[1]: # 근무 태도와 동료 평가 둘 다 비교함. 한번이라도 두 점수 모두 낮은 경우가 한번이라도 있다면 
+            return -1                           # 바로 return -1을 함.
+        if max_company <= s[1]:                 #
             if wanho_sum < s[0] + s[1]:
                 answer += 1
             max_company = s[1]
