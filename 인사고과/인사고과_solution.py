@@ -13,5 +13,6 @@ def solution(scores):
             max_company = s[1]
     return answer
 
-print(solution([[2,2], [1, 4], [3,2], [3, 2], [2, 1]]))
+# print(solution([[2,2], [1, 4], [3,2], [3, 2], [2, 1]]))
+print(solution([[4, 0], [2, 3], [4, 4], [2, 6]]))
 # answer => 4
