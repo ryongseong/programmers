@@ -4,10 +4,10 @@ def solution(scores):
     wanho = scores.pop(0)
     wanho_sum = sum(wanho)
 
-    scores.sort(key=lambda x: (-x[0], -x[1])) 
+    scores.sort(key=lambda x: (-x[0], x[1])) 
 
     for a, b in scores:
-                
+
         if wanho_sum < a + b:
             answer += 1
         
