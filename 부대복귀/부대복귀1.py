@@ -10,7 +10,7 @@ def solution(n, roads, sources, destination):
         graph[n1].append(n2)
         graph[n2].append(n1)
     while queue :                               # 큐가 빌때까지
-        x = queue.popleft()                     # x에 queue의 정보 넣기
+        x = queue.popleft()                     # x에 queue 제일 왼쪽을 뺴서 넣음
         for node in graph[x] :                  # 갈 수 있는 경로를 탐색
             if costs[node] == -1 :
                 queue.append(node)              # 갈 수 있는 경로를 큐에 추가 
