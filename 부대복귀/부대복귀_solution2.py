@@ -5,6 +5,7 @@ def solution(n, roads, sources, destination):
     graph = [[] for _ in range(n + 1)]                  # 각 지역이 1부터 시작하기에 n+1만큼 만들어 n개의 빈 리스트를 생성
     inf = float("inf")                                  # inf라는 무한대 생성 
     cost = [inf for _ in range(n + 1)]                  # cost에 다 n+1개만큼 무한대로 리스트 생성
+    answer = []
 
     for road in roads:                                  # 왕복이 가능하기에 각각의 정보 추가
         graph[road[0]].append(road[1])                 
@@ -20,7 +21,14 @@ def solution(n, roads, sources, destination):
                     cost[g] = c + 1                     # 현재 걸린 시간에 1을 추가하여 g의 거리값에 할당
                     heapq.heappush(h, (cost[g], g))     # 큐에 그 시간 정보와 다음 목적지 추가
 
-    return [cost[idx] if cost[idx] != inf else -1 for idx in sources]   # source안에 있는 정보 중에서 inf가 아닌 것은 출력하고 inf인 것은 -1로 출력
+    for idx in sources:
+        if cost[idx] != inf:
+            answer.append(cost[idx])
+        else:
+            answer.append(-1)
+
+    return answer
+    # return [cost[idx] if cost[idx] != inf else -1 for idx in sources]   # source안에 있는 정보 중에서 inf가 아닌 것은 출력하고 inf인 것은 -1로 출력
 
 print(solution(3, [[1, 2], [2, 3]], [2, 3], 1))
 # print(solution(5, [[1, 2], [1, 4], [2, 4], [2, 5], [4, 5]], [1, 3, 5], 5))
