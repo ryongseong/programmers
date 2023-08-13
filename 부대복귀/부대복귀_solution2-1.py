@@ -27,7 +27,3 @@ def solution(n, roads, sources, destination):
             answer.append(-1)
 
     return answer
-    # return [cost[idx] if cost[idx] != inf else -1 for idx in sources]   # source안에 있는 정보 중에서 inf가 아닌 것은 출력하고 inf인 것은 -1로 출력
-
-print(solution(3, [[1, 2], [2, 3]], [2, 3], 1))
-# print(solution(5, [[1, 2], [1, 4], [2, 4], [2, 5], [4, 5]], [1, 3, 5], 5))
