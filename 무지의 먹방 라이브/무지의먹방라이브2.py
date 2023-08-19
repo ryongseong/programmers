@@ -1,27 +1,27 @@
-import heapq
+from collections import deque
 
 def solution(food_times, k):
     answer = -1
-    food_list = []
-    for i in range(len(food_times)):
-        heapq.heappush(food_list, (food_times[i], i+1))
 
-    foods = len(food_times)
-    p = 0
+    queue = deque()
 
-    while food_list:
-        t = (food_list[0][0] - p) * foods
-        
-        if k >= t:
-            k -= t
-            p, index = heapq.heappop(food_list)
-            foods -= 1
+    for idx, food_time in enumerate(food_times):
+        queue.append([idx+1, food_time])
+    
+    while queue:
+        if k != 0:
+            food = queue.popleft()
+            
+            if food[1] == 0:
+                pass
+            else:
+                food[1] -= 1
+                queue.append(food)
+                k -= 1
         else:
-            idx = k % foods
-            food_list.sort(key=lambda x : x[1])
-            answer = food_list[idx][1]
+            answer = queue[0][0]
             break
-
+        
     return answer
 
 print(solution([3, 1, 2], 5))
