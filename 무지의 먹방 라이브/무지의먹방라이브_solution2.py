@@ -1,12 +1,10 @@
 def solution(food_times, k):
     food_list = []
-    totalTime = 0
 
     for i in range(len(food_times)):
         food_list.append([i, food_times[i]])
-        totalTime += food_times[i]
 
-    if totalTime <= k:
+    if sum(food_times) <= k:
         return -1
 
     food_list = sorted(food_list, key = lambda x:x[1])

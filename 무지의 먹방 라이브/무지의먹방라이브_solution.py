@@ -4,7 +4,7 @@ def solution(food_times, k):
     answer = -1
     h = []
     for i in range(len(food_times)):
-        heapq.heappush(h, (food_times[i], i + 1))
+        heapq.heappush(h, (food_times[i], i))
 
     food_num = len(food_times)  # 남은 음식 개수
     previous = 0  # 이전에 제거한 음식의 food_time
@@ -21,7 +21,7 @@ def solution(food_times, k):
         else:
             idx = k % food_num
             h.sort(key=lambda x: x[1])
-            answer = h[idx][1]
+            answer = h[idx][1] + 1
             break
 
     return answer
