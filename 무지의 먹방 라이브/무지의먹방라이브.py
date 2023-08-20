@@ -5,7 +5,12 @@ def solution(food_times, k):
     food_list = deque()
 
     for index, food_time in enumerate(food_times):
-        food_list.append([index+1, food_time])
+        food_list.append([index, food_time])
+    
+    total_time = sum(food_times)
+
+    if total_time <= k:
+        return -1
 
     while food_list:
         food = food_list.popleft()
@@ -18,7 +23,7 @@ def solution(food_times, k):
             break
 
 
-    answer = food_list[0][0]
+    answer = food_list[0][0] + 1
     return answer
 
 
