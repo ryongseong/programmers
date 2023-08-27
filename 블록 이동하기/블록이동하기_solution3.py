@@ -15,14 +15,15 @@ def solution(board):
 
     while queue:
         r1, c1, robot_d, mv = queue.popleft()
-        r2, c2 = r1 + drdc[robot_d][0], c1 + drdc[robot_d][1]
+        r2 = r1 + drdc[robot_d][0]
+        c2 = c1 + drdc[robot_d][1]
 
         # 목적지 도착
         if r2 == N - 1 and c2 == N - 1:
             return mv
 
         # 네 방향으로 이동
-        for d in range(4):
+        for d in range(len(drdc)):
             nr1, nc1 = r1 + drdc[d][0], c1 + drdc[d][1]
             nr2, nc2 = r2 + drdc[d][0], c2 + drdc[d][1]
 
@@ -54,5 +55,3 @@ def solution(board):
                     if (nr2, nc2, rotated_d) not in visited:
                         queue.append((nr2, nc2, rotated_d, mv + 1))
                         visited.add((nr2, nc2, rotated_d))
-
-    return -1
