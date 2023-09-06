@@ -1,7 +1,8 @@
 def solution(words, queries):
     head, head_rev = {}, {}
     wc = []
-    
+    answer=[]
+
     def add(head,word):
         node = head
         for w in word:
@@ -13,13 +14,8 @@ def solution(words, queries):
             else:
                 node['len'].append(len_word)
         node['end']=True   
-    
-    for word in words:
-        len_word = len(word)
-        add(head,word)
-        add(head_rev,word[::-1])
-        wc.append(len_word)
-        
+
+
     def search(head, querie):
         count=0
         node = head
@@ -30,8 +26,17 @@ def solution(words, queries):
                 break
             node = node[q]
         return count
+    
 
-    answer=[]
+
+    for word in words:
+        len_word = len(word)
+        add(head,word)
+        add(head_rev,word[::-1])
+        wc.append(len_word)
+        
+
+   
     for querie in queries:
         len_qu = len(querie)
         if querie[0]=='?':

@@ -7,8 +7,8 @@ def solution(words, queries):
         q = query.strip("?")
         query_list.append([len_query, q])
 
-    while query_list:
-        length, compare = query_list.pop(0)
+    # while query_list:
+    #     length, compare = query_list.pop(0)
         
 
 
