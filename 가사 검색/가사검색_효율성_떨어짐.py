@@ -25,3 +25,6 @@ def solution(words, queries):
                     answer += 1
             result.append(answer)
     return result
+
+print(solution(["frodo", "front", "frost", "frozen", "frame", "kakao"],
+                ["fro??", "????o", "fr???", "fro???", "pro?"]))
